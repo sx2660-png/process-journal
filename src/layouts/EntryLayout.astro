@@ -9,7 +9,8 @@ interface Props {
 }
 const { entry } = Astro.props;
 const { title, date, week, summary, tags, cover } = entry.data;
-const dateStr = date.toLocaleDateString('zh-CN', {
+const remoteCover = typeof cover === 'string';
+const dateStr = date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -17,11 +18,11 @@ const dateStr = date.toLocaleDateString('zh-CN', {
 ---
 <BaseLayout title={title} description={summary}>
   <article class="wrap entry">
-    <a class="entry__back" href="/">← 回到时间线</a>
+    <a class="entry__back" href="/">← Back to timeline</a>
 
     <header class="entry__header">
       <div class="entry__meta">
-        {week != null && <span class="entry__week">第 {week} 周</span>}
+        {week != null && <span class="entry__week">Week {week}</span>}
         <time datetime={date.toISOString()}>{dateStr}</time>
       </div>
       <h1 class="entry__title">{title}</h1>
@@ -32,8 +33,9 @@ const dateStr = date.toLocaleDateString('zh-CN', {
       )}
     </header>
 
-    {cover && (
-      <Image class="entry__cover" src={cover} alt={title} width={1200} height={630} />
+    {cover && (remoteCover
+      ? <img class="entry__cover" src={cover} alt={title} />
+      : <Image class="entry__cover" src={cover} alt={title} width={1200} height={630} />
     )}
 
     <div class="prose">

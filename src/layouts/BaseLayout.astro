@@ -10,11 +10,11 @@ const { title, description } = Astro.props;
 // 站点信息 —— 换成你自己的
 const siteName = 'Process Journal';
 const fullTitle = title ? `${title} · ${siteName}` : siteName;
-const desc = description ?? '一个记录创作与设计过程的学期档案。';
+const desc = description ?? 'A semester-long archive documenting my creative and design process.';
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,8 +28,8 @@ const desc = description ?? '一个记录创作与设计过程的学期档案。
       <div class="wrap">
         <a class="site-title" href="/">{siteName}</a>
         <nav class="site-nav">
-          <a href="/">周记</a>
-          <a href="/about">关于</a>
+          <a href="/">Journal</a>
+          <a href="/about">About</a>
         </nav>
       </div>
     </header>
@@ -40,7 +40,7 @@ const desc = description ?? '一个记录创作与设计过程的学期档案。
 
     <footer class="site-footer">
       <div class="wrap">
-        © {new Date().getFullYear()} {siteName} · 用创作过程记录一整个学期。
+        © {new Date().getFullYear()} {siteName} · Documenting the process.
       </div>
     </footer>
   </body>

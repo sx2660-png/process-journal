@@ -4,6 +4,7 @@ date: 2026-09-14
 week: 2
 summary: Every TUI design choice is quietly a claim about how learning works — and you can't pick the right scaffolding until you've actually observed your users.
 tags: [Reflection, Learning Theory, Design]
+cover: "https://images.unsplash.com/photo-1635183783375-98e857771351?w=1600&q=80&auto=format&fit=crop"
 draft: false
 ---
 
@@ -18,3 +19,8 @@ This reminded me of an internship where my team built an onboarding flow for new
 ## Burning Question
 
 When two relevant learning theories point in opposite directions — say, embodied cognition pushes for rich physical interaction while cognitive load theory warns against overwhelming the learner — how do designers actually decide which one to follow? Is there a framework for that, or does it always come down to judgment and experience?
+
+## Readings
+
+- Antle, A. N. & Wise, A. F. — *Getting Down to Details: Using Theories of Cognition and Learning to Inform Tangible User Interface Design*, Interacting with Computers 25(1) — [Oxford Academic](https://academic.oup.com/iwc/article-abstract/25/1/1/770846) · [PDF (SFU Summit)](https://summit.sfu.ca/item/38442)
+- Cooper, A. et al. — *About Face: The Essentials of Interaction Design* — [publisher page](https://www.wiley.com/en-us/About+Face%3A+The+Essentials+of+Interaction+Design%2C+4th+Edition-p-9781118766576)

@@ -12,7 +12,8 @@ interface Props {
   cover?: any;
 }
 const { href, title, date, week, summary, tags, cover } = Astro.props;
-const dateStr = date.toLocaleDateString('zh-CN', {
+const remoteCover = typeof cover === 'string';
+const dateStr = date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
@@ -21,12 +22,14 @@ const dateStr = date.toLocaleDateString('zh-CN', {
 <article class="card">
   {cover && (
     <a href={href} class="card__cover">
-      <Image src={cover} alt={title} width={820} height={430} />
+      {remoteCover
+        ? <img src={cover} alt={title} loading="lazy" />
+        : <Image src={cover} alt={title} width={820} height={430} />}
     </a>
   )}
   <div class="card__body">
     <div class="card__meta">
-      {week != null && <span class="card__week">第 {week} 周</span>}
+      {week != null && <span class="card__week">Week {week}</span>}
       <time datetime={date.toISOString()}>{dateStr}</time>
     </div>
     <h2 class="card__title"><a href={href}>{title}</a></h2>

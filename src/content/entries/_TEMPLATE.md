@@ -1,36 +1,36 @@
 ---
-title: 这里写标题
+title: Your title here
 date: 2026-01-01
 week: 0
-summary: 一句话概括这次记录（会显示在时间线卡片上）。
-tags: [头脑风暴, 草图]
-# cover: ./images/示例封面.jpg   # 可选：把图片放在这篇文章旁边再解开注释
-draft: true                       # 写好后删掉这行，或改成 false，就会出现在首页
+summary: One sentence summarizing this entry (shown on the timeline card).
+tags: [brainstorm, sketch]
+# cover: ./images/example-cover.jpg   # optional: put the image next to this file, then uncomment
+draft: true                            # delete this line (or set to false) to publish
 ---
 
 <!--
-  这是一个模板。复制这个文件、改个文件名（比如 week-03-xxx.md），
-  把上面 draft 改成 false，就是一篇新周记。
-  文件名会变成网址，尽量用英文/数字/短横线。
+  This is a template. Copy this file, rename it (e.g. week-03-xxx.md),
+  set draft to false, and you have a new entry.
+  The filename becomes the URL, so use letters, numbers, and hyphens.
 -->
 
-这周我做了什么、看到了什么、卡在了哪里。正常写就好。
+What I did, what I noticed, where I got stuck this week. Just write.
 
-## 做了什么
+## What I did
 
-在这里放照片、草图、便利贴、截图。把图片放进 `src/content/entries/images/`，
-然后像下面这样引用（去掉注释即可）：
+Drop in photos, sketches, Post-its, screenshots. Put images in
+`src/content/entries/images/` and reference them like this (uncomment to use):
 
-<!-- ![描述这张图](./images/示例.jpg) -->
+<!-- ![describe the image](./images/example.jpg) -->
 
-## 回顾与反思
+## Review & reflect
 
-- 哪些地方比我预期的好 / 差？
-- 如果重来一次，我会改哪一步？
+- What went better / worse than I expected?
+- If I did it again, what would I change?
 
-## 想法与岔路（留给未来的自己）
+## Ideas & alternatives (notes to my future self)
 
-- 这次没展开、但值得以后再挖的念头：
-- 我放弃的方向，以及为什么（万一要回头）：
+- A thread I didn't explore but might come back to:
+- A direction I dropped, and why (in case I need to return):
 
-> 引用块可以用来强调一句关键的想法或引述。
+> Use a blockquote to highlight a key idea or a quotation.

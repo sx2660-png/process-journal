@@ -17,8 +17,8 @@ const entries = defineCollection({
       summary: z.string().optional(),
       // 阶段 / 类型标签：Reflection / 头脑风暴 / 草图 / 原型 ...
       tags: z.array(z.string()).default([]),
-      // 封面图：把图片放进这篇文章旁边或 src/assets，然后写相对路径
-      cover: image().optional(),
+      // 封面图：可以是本地图片的相对路径，也可以直接填一个网络图片 URL
+      cover: z.union([image(), z.string().url()]).optional(),
       // 设为 true 可暂时隐藏（草稿）
       draft: z.boolean().default(false),
     }),

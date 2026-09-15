@@ -9,18 +9,19 @@ all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <BaseLayout>
   <section class="wrap intro">
-    <h1>创作过程档案</h1>
+    <h1>Topic Reflection</h1>
     <p>
-      这里按时间记录我这学期的每一步——从便利贴上的头脑风暴，到速写本里的草图，
-      再到粗糙的原型，以及每周的阅读反思。留下过程，是为了回顾、反思、保存灵感，
-      也为了分享思考的路径。
+      A running record of my semester, step by step — from Post-it brainstorms to
+      sketchbook pages to rough prototypes, alongside my weekly reading reflections.
+      Documenting the process is how I review, reflect, save ideas, and share the way
+      my thinking evolves.
     </p>
   </section>
 
   <section class="wrap timeline">
     {all.length === 0 && (
       <p class="empty">
-        还没有记录。往 <code>src/content/entries/</code> 里加一个 <code>.md</code> 文件就会出现在这里。
+        Nothing here yet. Add a <code>.md</code> file to <code>src/content/entries/</code> and it will show up here.
       </p>
     )}
     {all.map((entry) => (

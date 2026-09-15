@@ -1,25 +1,30 @@
 ---
-title: "Week N Reflection: 一句话标题"
+title: "Week N Reflection: Short title"
 date: 2026-01-01
 week: 0
-summary: 用一句话概括这周反思的核心（显示在时间线卡片上）。
+summary: One sentence capturing the core of this week's reflection (shown on the timeline card).
 tags: [Reflection]
 draft: true
 ---
 
 <!--
-  阅读/主题反思模板。复制这个文件、改文件名（如 week-03-reflection-xxx.md），
-  把 draft 改成 false 即可发布。三个小标题对应课程要求的反思结构。
+  Reading / topic reflection template. Copy this file, rename it
+  (e.g. week-03-reflection-xxx.md), and set draft to false to publish.
+  The three headings match the reflection structure for the course.
 -->
 
 ## Takeaway
 
-这周最重要的收获是什么？
+What was the single most important thing you took away this week?
 
 ## Connection to a Real-World Example
 
-它让你想到哪段真实经历或例子？
+What real experience or example did it bring to mind?
 
 ## Burning Question
 
-你还有什么没解决的、想继续追问的问题？
+What question are you still sitting with and want to keep exploring?
+
+## Readings
+
+- Author, *Title* — link
