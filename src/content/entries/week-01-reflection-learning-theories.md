@@ -2,7 +2,7 @@
 title: "Week 1 Reflection: Learning Theories as Tools, Not Rivals"
 date: 2026-09-07
 week: 1
-summary: Behaviorism, cognitivism, and constructivism aren't competing — they're tools for different jobs, and tangible tools are constructivist by design.
+summary: Ertmer & Newby give designers a framework for choosing among behaviorism, cognitivism, and constructivism — the real question is what kind of knowledge you're trying to build.
 tags: [Reflection, Learning Theory]
 cover: "https://images.unsplash.com/photo-1730382625230-3756013c515c?w=1600&q=80&auto=format&fit=crop"
 draft: false
@@ -10,16 +10,17 @@ draft: false
 
 ## Takeaway
 
-The three learning theories aren't really competing — they're tools for different jobs. Behaviorism works for habits and procedures, cognitivism for transferring structured knowledge, and constructivism for building real understanding. What struck me is how tangible tools are almost always constructivist by design: when you physically manipulate something, you can't just passively receive information — you have to actively make sense of it. That's a principle worth keeping in mind whenever I'm designing any kind of learning experience.
+Ertmer & Newby's real contribution isn't listing three theories — it's giving designers a framework for choosing between them. By comparing behaviorism, cognitivism, and constructivism across seven dimensions (what knowledge is, how learning occurs, the role of memory, etc.), they show these theories aren't competing but applicable to different types of learning goals. Hoadley & Cox push this further by showing that design knowledge itself comes in distinct forms: episteme (scientifically verified knowledge), techne (craft and execution), and phronesis (judging what's worth building in the first place) — and good designers need all three. The principle I'll carry forward: before choosing a theory, get clear on what type of knowledge you're actually trying to build.
 
 ## Connection to a Real-World Example
 
-This reminded me of a math class I took in middle school. The teacher would explain formulas on the board, and I could follow along in the moment, but when I got home and tried to do the homework, everything felt fuzzy. It wasn't until a classmate showed me how to use physical objects — like folding paper to visualize fractions — that things started to click. At the time I just thought some explanations were clearer than others, but after reading Schneider, I understand why: physically manipulating something forced me to actively construct the idea rather than just receive it. It's a small memory, but it stuck with me, and I think about it now whenever I'm trying to explain something complicated to someone else.
+This reminded me of an internship where my team built an onboarding system for new employees. We designed a structured, step-by-step guide — clean logic, well-organized content — and assumed that was enough. Almost no one read it after launch. Looking back, we were thinking in cognitivist terms: organize knowledge well and transfer it efficiently. But what users actually needed was constructivist learning — making sense of things through real tasks, not reading about them in advance. If we had asked ourselves "what kind of knowledge are we actually teaching here?" at the start, we probably would have built something completely different.
 
 ## Burning Question
 
-At what point does adding a digital layer to a physical manipulative start to hurt learning rather than help it? Is there a principled way to decide where to draw that line, or is it always something you can only discover through user testing?
+Ertmer & Newby argue each theory has its place, but in practice, a single product often needs to support multiple types of learning at once. Code-a-pillar, for example, requires children to remember instruction sequences (cognitivism) while also building programming intuition through trial and error (constructivism). When a designer draws on multiple theories in one product, how do you prevent them from working against each other? Is there a principle for deciding which theory takes priority when they pull in different directions?
 
 ## Readings
 
-- Schneider, B. et al. — *Preparing for Future Learning with a Tangible User Interface: The Case of Neuroscience* — [Semantic Scholar](https://www.semanticscholar.org/paper/Preparing-for-Future-Learning-with-a-Tangible-User-Schneider-Wallace/07ef2b7a8b121a10292ce09f2c215d2726ef7c28) · [PDF (Stanford)](https://stacks.stanford.edu/file/druid:hv406ys6639/final-IEEE-TLT.pdf)
+- Ertmer, P. A. & Newby, T. J. — *Behaviorism, Cognitivism, Constructivism: Comparing Critical Features from an Instructional Design Perspective*, Performance Improvement Quarterly 26(2) — [Wiley](https://onlinelibrary.wiley.com/doi/10.1002/piq.21143) · [PDF (METU OCW)](https://ocw.metu.edu.tr/pluginfile.php/3298/course/section/1174/peggy_2013_comparing_critical_features.pdf)
+- Hoadley, C. & Cox, C. — *What is Design Knowledge and How Do We Teach It?* (in *Educating Learning Technology Designers*) — [ResearchGate](https://www.researchgate.net/publication/224969237_What_is_design_knowledge_and_how_do_we_teach_it)
