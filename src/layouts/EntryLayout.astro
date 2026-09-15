@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from './BaseLayout.astro';
+import Tag from '../components/Tag.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'entries'>;
+}
+const { entry } = Astro.props;
+const { title, date, week, summary, tags, cover } = entry.data;
+const dateStr = date.toLocaleDateString('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+<BaseLayout title={title} description={summary}>
+  <article class="wrap entry">
+    <a class="entry__back" href="/">← 回到时间线</a>
+
+    <header class="entry__header">
+      <div class="entry__meta">
+        {week != null && <span class="entry__week">第 {week} 周</span>}
+        <time datetime={date.toISOString()}>{dateStr}</time>
+      </div>
+      <h1 class="entry__title">{title}</h1>
+      {tags.length > 0 && (
+        <div class="entry__tags">
+          {tags.map((t) => <Tag label={t} />)}
+        </div>
+      )}
+    </header>
+
+    {cover && (
+      <Image class="entry__cover" src={cover} alt={title} width={1200} height={630} />
+    )}
+
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .entry { padding-top: 32px; }
+  .entry__back {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .entry__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .entry__week { color: var(--accent); font-weight: 600; }
+  .entry__title {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+  }
+  .entry__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .entry__cover {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin: 24px 0 8px;
+    box-shadow: var(--shadow);
+  }
+</style>

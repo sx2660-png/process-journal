@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryCard from '../components/EntryCard.astro';
+
+// 拿到所有周记，过滤掉草稿，按日期倒序
+const all = await getCollection('entries', ({ data }) => !data.draft);
+all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<BaseLayout>
+  <section class="wrap intro">
+    <h1>创作过程档案</h1>
+    <p>
+      这里按时间记录我这学期的每一步——从便利贴上的头脑风暴，到速写本里的草图，
+      再到粗糙的原型，以及每周的阅读反思。留下过程，是为了回顾、反思、保存灵感，
+      也为了分享思考的路径。
+    </p>
+  </section>
+
+  <section class="wrap timeline">
+    {all.length === 0 && (
+      <p class="empty">
+        还没有记录。往 <code>src/content/entries/</code> 里加一个 <code>.md</code> 文件就会出现在这里。
+      </p>
+    )}
+    {all.map((entry) => (
+      <EntryCard
+        href={`/entries/${entry.id}`}
+        title={entry.data.title}
+        date={entry.data.date}
+        week={entry.data.week}
+        summary={entry.data.summary}
+        tags={entry.data.tags}
+        cover={entry.data.cover}
+      />
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .intro {
+    padding-top: 56px;
+    padding-bottom: 8px;
+  }
+  .intro h1 {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+  }
+  .intro p {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 60ch;
+    margin: 0;
+  }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-top: 40px;
+  }
+  .empty {
+    color: var(--muted);
+    padding: 40px 0;
+  }
+</style>

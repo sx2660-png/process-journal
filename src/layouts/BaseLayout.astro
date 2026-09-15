@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+// 站点信息 —— 换成你自己的
+const siteName = 'Process Journal';
+const fullTitle = title ? `${title} · ${siteName}` : siteName;
+const desc = description ?? '一个记录创作与设计过程的学期档案。';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="site-title" href="/">{siteName}</a>
+        <nav class="site-nav">
+          <a href="/">周记</a>
+          <a href="/about">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        © {new Date().getFullYear()} {siteName} · 用创作过程记录一整个学期。
+      </div>
+    </footer>
+  </body>
+</html>
