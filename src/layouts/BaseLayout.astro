@@ -7,6 +7,9 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+// base 路径（项目站点部署在 /process-journal/ 下时，链接都要带上它）
+// 规范化成结尾一定有一个斜杠，避免拼接出 "/process-journalabout" 这种错误
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 // 站点信息 —— 换成你自己的
 const siteName = 'Process Journal';
 const fullTitle = title ? `${title} · ${siteName}` : siteName;
@@ -18,7 +21,7 @@ const desc = description ?? 'A semester-long archive documenting my creative and
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
@@ -26,10 +29,10 @@ const desc = description ?? 'A semester-long archive documenting my creative and
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="site-title" href="/">{siteName}</a>
+        <a class="site-title" href={base}>{siteName}</a>
         <nav class="site-nav">
-          <a href="/">Journal</a>
-          <a href="/about">About</a>
+          <a href={base}>Journal</a>
+          <a href={`${base}about`}>About</a>
         </nav>
       </div>
     </header>
