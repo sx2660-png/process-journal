@@ -4,7 +4,7 @@ date: 2026-09-27
 week: 5
 summary: Hiring diversity and user personas still leave design with professionals. In Amparo, specialized-education teachers turned a Makey Makey kit into a table and a foot pedal that fit the students they already teach.
 tags: [Reflection, Design Justice, Participatory Design]
-cover: ./images/week5.jpeg
+cover: ./images/week5.jpg
 draft: false
 ---
 
