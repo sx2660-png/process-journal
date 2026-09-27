@@ -8,7 +8,7 @@ interface Props {
   entry: CollectionEntry<'entries'>;
 }
 const { entry } = Astro.props;
-const { title, date, week, summary, tags, cover } = entry.data;
+const { title, date, week, summary, tags, cover, category } = entry.data;
 const remoteCover = typeof cover === 'string';
 const dateStr = date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -18,7 +18,12 @@ const dateStr = date.toLocaleDateString('en-US', {
 ---
 <BaseLayout title={title} description={summary}>
   <article class="wrap entry">
-    <a class="entry__back" href={import.meta.env.BASE_URL.replace(/\/?$/, '/')}>← Back to timeline</a>
+    <a
+      class="entry__back"
+      href={`${import.meta.env.BASE_URL.replace(/\/?$/, '/')}#${category === 'training' ? 'training' : 'reflections'}`}
+    >
+      ← Back to {category === 'training' ? 'training' : 'reflections'}
+    </a>
 
     <header class="entry__header">
       <div class="entry__meta">

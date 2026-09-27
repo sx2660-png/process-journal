@@ -17,6 +17,8 @@ const entries = defineCollection({
       summary: z.string().optional(),
       // 阶段 / 类型标签：Reflection / 头脑风暴 / 草图 / 原型 ...
       tags: z.array(z.string()).default([]),
+      // 首页分两类：阅读反思 / 工坊训练
+      category: z.enum(['reflection', 'training']).default('reflection'),
       // 封面图：可以是本地图片的相对路径，也可以直接填一个网络图片 URL
       cover: z.union([image(), z.string().url()]).optional(),
       // 设为 true 可暂时隐藏（草稿）

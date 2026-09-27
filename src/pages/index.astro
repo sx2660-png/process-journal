@@ -3,39 +3,58 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EntryCard from '../components/EntryCard.astro';
 
-// 拿到所有周记，过滤掉草稿，按日期倒序
+// 拿到所有笔记，过滤掉草稿，按日期倒序，再分成阅读反思和工坊训练
 const all = await getCollection('entries', ({ data }) => !data.draft);
 all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const groups = [
+  {
+    id: 'reflections',
+    title: 'Topic Reflections',
+    note: 'Weekly reading responses.',
+    entries: all.filter((entry) => entry.data.category === 'reflection'),
+  },
+  {
+    id: 'training',
+    title: 'Makerspace Training',
+    note: 'Shop logs from required trainings.',
+    entries: all.filter((entry) => entry.data.category === 'training'),
+  },
+];
 ---
 <BaseLayout>
   <section class="wrap intro">
-    <h1>Topic Reflection</h1>
+    <h1>Notes</h1>
     <p>
-      A running record of my semester, step by step — from Post-it brainstorms to
-      sketchbook pages to rough prototypes, alongside my weekly reading reflections.
-      Documenting the process is how I review, reflect, save ideas, and share the way
-      my thinking evolves.
+      A running record of the semester, kept in two piles: weekly reading reflections,
+      and makerspace training logs.
     </p>
   </section>
 
-  <section class="wrap timeline">
-    {all.length === 0 && (
-      <p class="empty">
-        Nothing here yet. Add a <code>.md</code> file to <code>src/content/entries/</code> and it will show up here.
-      </p>
-    )}
-    {all.map((entry) => (
-      <EntryCard
-        href={`${import.meta.env.BASE_URL.replace(/\/?$/, '/')}entries/${entry.id}`}
-        title={entry.data.title}
-        date={entry.data.date}
-        week={entry.data.week}
-        summary={entry.data.summary}
-        tags={entry.data.tags}
-        cover={entry.data.cover}
-      />
-    ))}
-  </section>
+  {groups.map((group) => (
+    <section class="wrap group" id={group.id}>
+      <h2>{group.title}</h2>
+      <p class="group__note">{group.note}</p>
+      {group.entries.length === 0 ? (
+        <p class="empty">Nothing in this pile yet.</p>
+      ) : (
+        <div class="timeline">
+          {group.entries.map((entry) => (
+            <EntryCard
+              href={`${base}entries/${entry.id}`}
+              title={entry.data.title}
+              date={entry.data.date}
+              week={entry.data.week}
+              summary={entry.data.summary}
+              tags={entry.data.tags}
+              cover={entry.data.cover}
+            />
+          ))}
+        </div>
+      )}
+    </section>
+  ))}
 </BaseLayout>
 
 <style>
@@ -56,11 +75,25 @@ all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
     max-width: 60ch;
     margin: 0;
   }
+  .group {
+    padding-top: 48px;
+  }
+  .group h2 {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+  }
+  .group__note {
+    color: var(--muted);
+    font-size: 16px;
+    margin: 0 0 20px;
+  }
   .timeline {
     display: flex;
     flex-direction: column;
     gap: 28px;
-    padding-top: 40px;
   }
   .empty {
     color: var(--muted);

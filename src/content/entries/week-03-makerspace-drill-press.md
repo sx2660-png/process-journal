@@ -4,6 +4,7 @@ date: 2026-09-16
 week: 3
 summary: Drill press training in the makerspace — and a reminder that some knowledge lives in the hands, not in words.
 tags: [Makerspace, Training, Woodworking]
+category: training
 cover: ./images/drillpress-training.png
 draft: false
 ---
