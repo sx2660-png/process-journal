@@ -10,6 +10,12 @@ all.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const groups = [
   {
+    id: 'work',
+    title: 'Work',
+    note: 'Project slices I can walk through as an AI engineer.',
+    entries: all.filter((entry) => entry.data.category === 'work'),
+  },
+  {
     id: 'reflections',
     title: 'Topic Reflections',
     note: 'Weekly reading responses.',
@@ -27,8 +33,8 @@ const groups = [
   <section class="wrap intro">
     <h1>Notes</h1>
     <p>
-      A running record of the semester, kept in two piles: weekly reading reflections,
-      and makerspace training logs.
+      A running record of the semester — project slices I can walk through as work,
+      weekly reading reflections, and makerspace training logs.
     </p>
   </section>
 
